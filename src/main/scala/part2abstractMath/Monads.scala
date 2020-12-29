@@ -22,7 +22,7 @@ object Monads {
   val charOption = Option('d')
 
   // TODO 1.2 how do you create the combination of (number, char)?
-  // options have flatmaps and mapts
+  // options have flatmaps and maps
 
   val combinationOption = numberOption.flatMap(n => charOption.map(c => (n, c)))
   val combOptions = for {
@@ -30,9 +30,9 @@ object Monads {
     c <- charOption
   } yield (n, c)
 
-  // futures // this will be the fplatform from which the futures will be running on
+  // futures // this will be the platform from which the futures will be running on
   implicit val ec: ExecutionContext = ExecutionContext.fromExecutorService(Executors.newFixedThreadPool(8))
-  val numberFuture = Future(42) // a Future containign a number that will be evaluated at some point in the future in some thread
+  val numberFuture = Future(42) // a Future containing a number that will be evaluated at some point in the future in some thread
   val charFuture = Future('Z')
 
   // TODO 1.3 how do you create the combination of (number, char)?
