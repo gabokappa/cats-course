@@ -27,7 +27,7 @@ object Readers {
   // The Reader[x, y] x = is the data type to "read" the input and the y = is the output
   val dbReader: Reader[Configuration, DbConnection] = Reader(conf => DbConnection(conf.dbUsername, conf.dbPassword)) // the apply factory method, it takes a function from a configuration to a db connection
   // this reader is the specification on how we are going to derive a DbConnection from a configuration object. we need to inject the config into the Reader.
-  val dbConn = dbReader.run(config) // The configration object is passed into .run which then runs the function outlines above that creaters the DbConnection
+  val dbConn = dbReader.run(config) // The configration object is passed into .run which then runs the function outlined above that creaters the DbConnection
 
   // Reader[I, O] the O for Output can be transformed to something else using the map function
 
