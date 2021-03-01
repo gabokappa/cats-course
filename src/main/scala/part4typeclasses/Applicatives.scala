@@ -44,7 +44,7 @@ val optionApplicative = Applicative[Option]
     val functionWrapper: W[B => (A, B)] = applicative.map(wa)(a => (b: B) => (a, b))
     applicative.ap(functionWrapper)(wb)
   }
-// An applicative can be a semigroupal in the pressence of the ap method. The ap method takes this signature ap[W[_], B, T](wf: W[B => T])(wa: W[B]): W[T]. They can implement product from semigroupal
+// An applicative can be a semigroupal in the pressence of the ap method you can create the product which is the fundamental part of a Semigroupal. The ap method takes this signature ap[W[_], B, T](wf: W[B => T])(wa: W[B]): W[T]. They can implement product from semigroupal
 
   def main(args: Array[String]): Unit = {
 
