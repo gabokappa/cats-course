@@ -82,7 +82,7 @@ object Monads {
   def getPairsFuture(number: Future[Int], chars: Future[Char]): Future[(Int, Char)] = number.flatMap(n => chars.map(c => (n, c)))
 
   // genralising with Monads
-  // this can flatMap any data structure as long as an implicit Monad M in scope
+  // this can flatMap any data structure as long as an implicit Monad M is in scope
   def getPairs[M[_], A, B](ma: M[A], mb: M[B])(implicit monad: Monad[M]): M[(A, B)] = // this requires an implicit Monad in scope, a Monad M
     monad.flatMap(ma)(a => monad.map(mb)(b => (a, b)))
 
